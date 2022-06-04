@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!Ставим логотип>
+    <link rel="icon" href="Images/logo.png" type="image/png"/>
+    <meta charset="UTF-8">
+    <title>Admin panel</title>
+    <!Подключаем стиль CSS из файла styleReg>
+    <link rel="stylesheet" href="APStyle.css">
+
+</head>
+<body>
+
+    <main>
+        <!Класс шапки>
+        <div class="hat">
+            <header> <! в шапке прописываем список кнопок навигационной панели с сылками на html странички >
+                <ul class = "menu">
+                    <a href = "#" class="menuFirst">Главная</a>
+                    <a href = "#" class="menuSecond">Акции</a>
+                    <a href = "#" class="menuThird">Категории</a>
+                    <a href = "#" class="menuFourth">Магазины</a>
+                    <a href="#" class="Username">Username</a>
+                </ul>
+
+            </header>
+            <div class="photo"></div>
+            <img src="Images/Triangle.png" class="imgUsname">
+        </div>
+
+        <! Класс боковой панели инструментов>
+        <div class="sidebar">
+
+            <!Картинки "треугольников" раскрытия списка>
+            <img src="Images/Triangle.png" class="imgTriangle">
+            <img src="Images/Triangle.png" class="imgTriangle1">
+            <img src="Images/Triangle.png" class="imgTriangle2">
+
+
+
+            <!Список кнопок боковой панели управления>
+            <ul class="sidenav">
+                <a href="#">Панель управления</a>
+                <a href="#">Настройки системы</a>
+                <a href="#">Мультимедия</a>
+                <a href="#">Утилиты</a>
+                <a href="#">Др. разделы</a>
+            </ul>
+
+        </div>
+
+    </main>
+
+</body>
+<footer>
+    <!Подключаем библиотеку JavaScript для построения графиков >
+    <script src="chart/lib/liteChart.min.js"></script>
+    <div id="first" class="firstGraph"></div>
+    <script>
+        document.addEventListener("DOMContentLoaded", function(){
+            // Создаём объект liteChart.js
+            let d = new liteChart("chart");
+
+            // Ось Х
+            d.setLabels(["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]);
+
+            // Задаём значения искомым переменным по оси У
+            d.addLegend({"name": "Day", "stroke": "#CDDC39", "fill": "#fff", "values": [100, 200, 450, 400, 500, 300, 700, 800, 601, 705, 604, 803]});
+            d.addLegend({"name": "Night", "stroke": "#3b95f7", "fill": "#fff", "values": [200, 150, 240, 180, 150, 240, 230, 300, 200, 150, 270, 200]});
+
+            // Внедряем диаграмму в объект
+            let div = document.getElementById("first");
+            d.inject(div);
+
+            // Рисуем график
+            d.draw();
+        });
+    </script>
+
+
+</footer>
+</html>
